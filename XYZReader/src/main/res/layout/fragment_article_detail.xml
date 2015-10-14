@@ -1,0 +1,182 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    ><!--android:fitsSystemWindows="true"-->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+
+       >
+        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:expandedTitleTextAppearance="@style/TextViewExpanded"
+
+            app:contentScrim="?attr/colorPrimary"
+
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <!--app:statusBarScrim="?attr/colorPrimaryDark"-->
+            <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+<!--  app:expandedTitleTextAppearance="@android:color/transparent" make title show only collapsed -->
+            <!--android:fitsSystemWindows="true"-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_photo_height"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
+                />
+                <Button
+                    android:layout_gravity="center"
+                    android:id="@+id/loading_failed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingEnd="5dp"
+
+                    android:text="@string/msg_button_img_reload"
+                    android:background="#90808080"
+
+                    android:drawableLeft="@drawable/ic_cloud_off_white_36dp"
+                    android:drawableStart="@drawable/ic_cloud_off_white_36dp"
+                    android:visibility="invisible"
+                    android:contextClickable="false"
+                    android:clickable="true"/>
+
+                <ProgressBar
+                    android:id="@+id/loadingImageCircle"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:visibility="invisible"
+                    />
+
+            </FrameLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                />
+            <!-- if not select collapsemode as pin then uparrow scrolled and disappear -->
+            <!--http://blog.grafixartist.com/toolbar-animation-with-android-design-support-library/-->
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <!--<ScrollView-->
+    <!--android:id="@+id/scrollview"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+        <!-->-->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        app:behavior_overlapTop="@dimen/nested_scrollview_overlap"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >  <!-- important last line -->
+        <!--app:behavior_overlapTop="@dimen/nested_scrollview_overlap"-->
+    <!--android:background="@color/windowBackground"-->
+        <!--android:foregroundGravity="top|center_horizontal"-->
+        <LinearLayout
+            android:layout_width="@dimen/detail_card_max_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+
+            android:orientation="vertical" >
+            <!--android:background="@android:color/transparent"-->
+            <!--android:layout_marginTop="@dimen/detail_card_top_margin"-->
+                <LinearLayout
+                    android:id="@+id/meta_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#888888"
+                    android:orientation="vertical"
+                    android:layout_gravity="top"
+                    android:paddingTop="@dimen/detail_metabar_title_padding_top"
+                    android:paddingLeft="@dimen/detail_metabar_title_padding_left"
+                    android:paddingRight="@dimen/detail_metabar_title_padding_right"
+                    android:paddingBottom="@dimen/detail_metabar_title_padding_bottom" >
+                    <!--android:layout_marginTop="@dimen/detail_card_top_margin"-->
+                    <!--android:paddingLeft="@dimen/detail_inner_horiz_margin"-->
+                    <!--android:paddingRight="@dimen/detail_inner_horiz_margin"-->
+                    <!--android:paddingTop="@dimen/detail_metabar_vert_padding"-->
+                    <!--android:paddingBottom="@dimen/detail_metabar_vert_padding"-->
+                    <!--android:layout_marginBottom="@dimen/detail_metabar_vert_padding"-->
+
+                    <TextView
+                        android:id="@+id/article_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/detail_title_text_size"
+                        android:lineSpacingMultiplier="0.9" />
+
+                    <TextView
+                        android:id="@+id/article_byline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#8fff" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/article_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackground"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorLink="@color/colorAccent"
+                    android:textSize="@dimen/detail_body_text_size"
+                    android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                    android:paddingRight="@dimen/detail_inner_horiz_margin"
+                    android:paddingTop="@dimen/detail_body_top_margin"
+                    android:paddingBottom="@dimen/detail_body_bottom_margin"
+                    android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
+            </LinearLayout>
+    <!--</ScrollView>-->
+    </android.support.v4.widget.NestedScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_share"
+        app:fabSize="normal"
+        app:elevation="@dimen/fab_elevation"
+        app:pressedTranslationZ="12dp"
+        app:borderWidth="0dp"
+        app:layout_anchorGravity="bottom|right|end"
+        android:layout_gravity="end|bottom"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/action_share"
+        />
+    <!--android:stateListAnimator="@anim/fab_state_list_anim"-->
+</android.support.design.widget.CoordinatorLayout>
+
+
+
+

@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- list -->
+    <dimen name="list_max_width">600dp</dimen>
+
+    <!-- detail -->
+    <bool name="detail_is_card">true</bool>
+
+    <dimen name="detail_photo_height">384dp</dimen>
+    <dimen name="detail_card_top_margin">256dp</dimen>
+</resources>

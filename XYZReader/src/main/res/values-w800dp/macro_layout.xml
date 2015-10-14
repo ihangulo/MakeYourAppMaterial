@@ -1,0 +1,15 @@
+<resources>
+    <!-- list -->
+    <dimen name="list_max_width">600dp</dimen>
+
+    <dimen name="list_side_margin">64dp</dimen>
+    <dimen name="list_toolbar_side_margin">52dp</dimen> <!-- minus 64 - 12 -->
+    <integer name="list_column_count">3</integer>
+
+    <!-- detail -->
+    <dimen name="detail_card_max_width">704dp</dimen> <!-- max width -->
+    <dimen name="detail_photo_height">384dp</dimen>
+    <dimen name="detail_card_top_margin">256dp</dimen>
+    <!--<dimen name="nested_scrollview_overlap">@dimen/detail_photo_height</dimen> &lt;!&ndash; overlap title &ndash;&gt;-->
+    <dimen name="nested_scrollview_overlap">64dp</dimen> <!-- overlap title -->
+</resources>
